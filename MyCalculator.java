@@ -7,10 +7,10 @@ import javax.swing.*;
 
 public class MyCalculator extends JFrame implements ActionListener {
     // Components
-    private JTextField inputField;
-    private JButton[] numberButtons = new JButton[10];
-    private JButton addButton, subButton, mulButton, divButton, eqButton, clrButton;
-    private JPanel panel;
+    private final JTextField inputField;
+    private final JButton[] numberButtons = new JButton[10];
+    private final JButton addButton, subButton, mulButton, divButton, eqButton, clrButton;
+    private final JPanel panel;
 
     // Variables
     private double num1 = 0, num2 = 0, result = 0;
@@ -107,6 +107,7 @@ public class MyCalculator extends JFrame implements ActionListener {
                     return;
             }
             inputField.setText(String.valueOf(result));
+            System.out.println(result);
         }
         if (e.getSource() == clrButton) {
             inputField.setText("");
