@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class MyCalculator extends JFrame implements ActionListener {
+
     // Components
     private final JTextField inputField;
     private final JButton[] numberButtons = new JButton[10];
@@ -19,7 +20,7 @@ public class MyCalculator extends JFrame implements ActionListener {
     public MyCalculator() {
         // Frame setup
         setTitle("Calculator");
-        setSize(400, 500);
+        setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
 
@@ -98,13 +99,22 @@ public class MyCalculator extends JFrame implements ActionListener {
         if (e.getSource() == eqButton) {
             num2 = Double.parseDouble(inputField.getText());
             switch (operator) {
-                case '+': result = num1 + num2; break;
-                case '-': result = num1 - num2; break;
-                case '*': result = num1 * num2; break;
-                case '/': 
-                    if (num2 != 0) result = num1 / num2;
-                    else inputField.setText("Error");
-                    return;
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 != 0) {
+                        result = num1 / num2; 
+                    }else {
+                        inputField.setText("Error");
+                        return;
+                    }
             }
             inputField.setText(String.valueOf(result));
             System.out.println(result);
@@ -118,5 +128,3 @@ public class MyCalculator extends JFrame implements ActionListener {
         new MyCalculator();
     }
 }
-
-
